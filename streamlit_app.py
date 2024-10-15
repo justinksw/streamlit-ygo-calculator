@@ -41,7 +41,6 @@ def define_row(row_id):
 def append_rows():
     st.session_state["Row Ids"].append(f"{st.session_state['Row Num']}")
     st.session_state["Row Num"] += 1
-    print(st.session_state["Row Ids"])
 
 
 def reduce_row():

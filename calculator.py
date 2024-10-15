@@ -13,10 +13,12 @@ def cal(rows):
     ls = [list(range(row.min, row.max + 1)) for row in rows]
 
     combs = list(itertools.product(*ls))
+    combs = [c for c in combs if sum(c) <= st.session_state["Hand Size"]]
 
-    combs_ls = []
+    A = 0
 
     for comb in combs:
+
         B = 1
         amt_sum = 0
         hand_count = 0
@@ -33,10 +35,8 @@ def cal(rows):
             st.session_state["Hand Size"] - hand_count,
         )
 
-        combs_ls.append(B)
+        A += B
 
-    prob = sum(combs_ls) / nCr(
-        st.session_state["Deck Size"], st.session_state["Hand Size"]
-    )
+    prob = A / nCr(st.session_state["Deck Size"], st.session_state["Hand Size"])
 
     return prob
