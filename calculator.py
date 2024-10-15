@@ -20,18 +20,18 @@ def cal(rows):
     for comb in combs:
 
         B = 1
-        amt_sum = 0
+        amt_count = 0
         hand_count = 0
 
         for i, v in enumerate(comb):
 
             hand_count += v
-            amt_sum += rows[i].amt
+            amt_count += rows[i].amt
 
             B *= nCr(rows[i].amt, v)
 
         B *= nCr(
-            st.session_state["Deck Size"] - amt_sum,
+            st.session_state["Deck Size"] - amt_count,
             st.session_state["Hand Size"] - hand_count,
         )
 
