@@ -23,7 +23,7 @@ class Row:
 
 
 def define_row(row_id):
-    col0, col1, col2, col3 = st.columns(4)
+    col0, col1, col2, col3 = st.columns([0.25] * 4)
     with col0:
         st.text_input(
             "Name", f"Card_{row_id}", key=f"{row_id}_0", label_visibility="hidden"
@@ -69,7 +69,7 @@ with col2:
 st.write("")
 st.write("")
 
-col0, col1, col2, col3 = st.columns(4)
+col0, col1, col2, col3 = st.columns([0.25] * 4)
 with col0:
     st.subheader("Name")
 with col1:
